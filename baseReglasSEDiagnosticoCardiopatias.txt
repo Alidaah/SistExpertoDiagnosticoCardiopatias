@@ -1,0 +1,535 @@
+//REGLAS DE ANGINA DE PECHO
+1.SI((opresionPecho=="0" OR opresionPecho=="1" )  AND  (dolorPecho=="0" OR dolorPecho=="1")  AND
+  (dolorTorax=="0" OR dolorTorax=="1")) ENTONCES anginaPecho="0"
+2.SI((opresionPecho=="0" OR opresionPecho=="1" )  AND  (dolorPecho=="0" OR dolorPecho=="1")   AND
+  dolorTorax=="2") ENTONCES anginaPecho="1"
+3.SI((opresionPecho=="0" OR opresionPecho=="1" )  AND  dolorPecho=="2"  AND  (dolorTorax=="0" OR dolorTorax=="1"))
+  ENTONCES anginaPecho="1"
+4.SI((opresionPecho=="0" OR opresionPecho=="1" )  AND  dolorPecho=="2"  AND  dolorTorax=="2")
+  ENTONCES anginaPecho="2"
+5.SI(opresionPecho=="2"  AND  (dolorPecho=="0" OR dolorPecho=="1")  AND  (dolorTorax=="0" OR dolorTorax=="1"))
+  ENTONCES anginaPecho="1"
+6.SI(opresionPecho=="2"  AND  (dolorPecho=="0" OR dolorPecho=="1")  AND  dolorTorax=="2")
+  ENTONCES anginaPecho="2"
+7.SI(opresionPecho=="2"  AND  dolorPecho=="2"  AND  (dolorTorax=="0" OR dolorTorax=="1"))
+  ENTONCES anginaPecho="2"
+8.SI(opresionPecho=="2"  AND  dolorPecho=="2"  AND  dolorTorax=="2") ENTONCES anginaPecho="2"
+
+//REGLAS PARA LA ASTENIA
+9.SI((debilidadExt=="0" OR debilidadExt=="1" )  AND  (fatigaEF=="0" OR fatigaEF=="1")  AND  (dolorCabeza=="0" OR dolorCabeza=="1")) ENTONCES astenia="0"
+10.SI((debilidadExt=="0" OR debilidadExt=="1" )  AND  (fatigaEF=="0" OR fatigaEF=="1")  AND  dolorCabeza=="2")ENTONCES astenia="1"
+11.SI((debilidadExt=="0" OR debilidadExt=="1" )  AND  fatigaEF=="2"  AND  (dolorCabeza=="0" OR dolorCabeza=="1")) ENTONCES astenia="1"
+12.SI((debilidadExt=="0" OR debilidadExt=="1" )  AND  fatigaEF=="2"  AND  dolorCabeza=="2") ENTONCES astenia="2"
+13.SI(debilidadExt=="2"  AND  (fatigaEF=="0" OR fatigaEF=="1")  AND  (dolorCabeza=="0" OR dolorCabeza=="1"))ENTONCES anginaPecho="1"
+14.SI(debilidadExt=="2"  AND  (fatigaEF=="0" OR fatigaEF=="1")  AND  dolorCabeza=="2") ENTONCES anginaPecho="2"
+15.SI(debilidadExt=="2"  AND  fatigaEF=="2"  AND  (dolorCabeza=="0" OR dolorCabeza=="1")) ENTONCES anginaPecho="2"
+16.SI(debilidadExt=="2"  AND  fatigaEF=="2"  AND  dolorCabeza=="2") ENTONCES anginaPecho="2"
+ 
+//REGLAS PARA LA DISNEA
+17.SI((FADescansar=="0" OR FADescansar=="1" )  AND  (dSIRespirar=="0" OR dSIRespirar=="1")  AND  (FAHablar=="0" OR FAHablar=="1")) ENTONCES disnea="0"
+18.SI((FADescansar=="0" OR FADescansar=="1" )  AND  (dSIRespirar=="0" OR dSIRespirar=="1")  AND  FAHablar=="2") ENTONCES disnea="1"
+19.SI((FADescansar=="0" OR FADescansar=="1" )  AND  dSIRespirar=="2"  AND  (FAHablar=="0" OR FAHablar=="1")) ENTONCES disnea="1"
+20.SI((FADescansar=="0" OR FADescansar=="1" )  AND  dSIRespirar=="2"  AND  FAHablar=="2") ENTONCES disnea="2"
+21.SI(FADescansar=="2"  AND  (dSIRespirar=="0" OR dSIRespirar=="1")  AND  (FAHablar=="0" OR FAHablar=="1")) ENTONCES disnea="1"
+22.SI(FADescansar=="2"  AND  (dSIRespirar=="0" OR dSIRespirar=="1")  AND  FAHablar=="2") ENTONCES disnea="2"
+23.SI(FADescansar=="2"  AND  dSIRespirar=="2"  AND  (FAHablar=="0" OR FAHablar=="1")) ENTONCES disnea="2"
+24.SI(FADescansar=="2"  AND  dSIRespirar=="2"  AND  FAHablar=="2") ENTONCES disnea="2"
+ 
+//REGLAS PARA EL SINCOPE
+25.SI((mareo=="0" OR mareo=="1" )  AND  (nauVom=="0" OR nauVom=="1")  AND  (desmayo=="0" OR desmayo=="1")) ENTONCES sincope="0"
+26.SI((mareo=="0" OR mareo=="1" )  AND  (nauVom=="0" OR nauVom=="1")  AND  desmayo=="2")ENTONCES sincope="1"
+27.SI((mareo=="0" OR mareo=="1" )  AND  nauVom=="2"  AND  (desmayo=="0" OR desmayo=="1"))ENTONCES sincope="1"
+28.SI((mareo=="0" OR mareo=="1" )  AND  nauVom=="2"  AND   desmayo=="2") ENTONCES sincope="2"
+29.SI(mareo=="2"  AND  (nauVom=="0" OR nauVom=="1")  AND  (desmayo=="0" OR desmayo=="1"))ENTONCES sincope="1"
+30.SI(mareo=="2"  AND  (nauVom=="0" OR nauVom=="1")  AND   desmayo=="2")ENTONCES sincope="2"
+31.SI(mareo=="2"  AND  nauVom=="2"  AND  (desmayo=="0" OR desmayo=="1")) ENTONCES sincope="2"
+32.SI(mareo=="2"  AND  nauVom=="2"  AND  desmayo=="2") ENTONCES sincope="2"
+
+//REGLAS ALIMENTACION
+33.SI(diabetes=="0"  AND  (trigliceridos=="0" OR trigliceridos=="1" )  AND  (colesterol=="0" OR colesterol=="1")  AND  (estres=="0" OR estres=="1")) ENTONCES malaAlimentacion="0"
+34.SI(diabetes=="0"  AND  (trigliceridos=="0" OR trigliceridos=="1" )  AND  (colesterol=="0" OR colesterol=="1")  AND  estres=="2") ENTONCES malaAlimentacion="1"
+35.SI(diabetes=="0"  AND  (trigliceridos=="0" OR trigliceridos=="1" )  AND  colesterol=="2"  AND  (estres=="0" OR estres=="1")) ENTONCES malaAlimentacion="1"
+36.SI(diabetes=="0"  AND  (trigliceridos=="0" OR trigliceridos=="1" )  AND  colesterol=="2"  AND  estres=="2")
+ENTONCES malaAlimentacion="2"
+37.SI(diabetes=="0"  AND  trigliceridos=="2"  AND  (colesterol=="0" OR colesterol=="1")  AND  (estres=="0" OR estres=="1")) ENTONCES malaAlimentacion="1"
+38.SI(diabetes=="0"  AND  trigliceridos=="2"  AND  (colesterol=="0" OR colesterol=="1")  AND  estres=="2")
+ENTONCES malaAlimentacion="2"
+39.SI(diabetes=="0"  AND  colesterol=="2"  AND  (estres=="0" OR estres=="1"))
+ENTONCES malaAlimentacion="2"
+40.SI(diabetes=="0"  AND  colesterol=="2"  AND  estres=="2") ENTONCES malaAlimentacion="2"
+41.SI(diabetes=="1"  AND  (trigliceridos=="0" OR trigliceridos=="1" ) AND  (colesterol=="0" OR colesterol=="1")  AND  (estres=="0" OR estres=="1")) ENTONCES malaAlimentacion="0"
+42.SI(diabetes=="1"  AND  (trigliceridos=="0" OR trigliceridos=="1" ) AND  (colesterol=="0" OR colesterol=="1")  AND  estres=="2") ENTONCES malaAlimentacion="1"
+43.SI(diabetes=="1"  AND  (trigliceridos=="0" OR trigliceridos=="1" )  AND  colesterol=="2"  AND  (estres=="0" OR estres=="1")) ENTONCES malaAlimentacion="1"
+44.SI(diabetes=="1"  AND  (trigliceridos=="0" OR trigliceridos=="1" )  AND  colesterol=="2"  AND  estres=="2")
+ENTONCES malaAlimentacion="2"
+45.SI(diabetes=="1"  AND  trigliceridos=="2"  AND  (colesterol=="0" OR colesterol=="1")  AND  (estres=="0" OR estres=="1")) ENTONCES malaAlimentacion="1"
+46.SI(diabetes=="1"  AND  trigliceridos=="2"  AND  (colesterol=="0" OR colesterol=="1")  AND  estres=="2")
+ENTONCES malaAlimentacion="2"
+47.SI(diabetes=="1"  AND  trigliceridos=="2"  AND  colesterol=="2"  AND  (estres=="0" OR estres=="1"))
+ENTONCES malaAlimentacion="2"
+48.SI(diabetes=="1"  AND  trigliceridos=="2"  AND  colesterol=="2"  AND  estres=="2") ENTONCES malaAlimentacion="2"
+
+//REGLAS DROGAS
+49.SI((tabaquismo=="0" OR tabaquismo=="1")  AND  (cafeina=="0" OR cafeina=="1" )  AND  (droga=="0" OR droga=="1")  AND  (alcoholismo=="0" OR alcoholismo=="1")) ENTONCES drogas="0"
+50.SI((tabaquismo=="0" OR tabaquismo=="1")  AND  (cafeina=="0" OR cafeina=="1" )  AND  (droga=="0" OR droga=="1")  AND  alcoholismo=="2") ENTONCES drogas="1"
+51.SI((tabaquismo=="0" OR tabaquismo=="1")  AND  (cafeina=="0" OR cafeina=="1" )  AND  droga=="2"  AND  (alcoholismo=="0" OR alcoholismo=="1")) ENTONCES drogas="1"
+52.SI((tabaquismo=="0" OR tabaquismo=="1")  AND  (cafeina=="0" OR cafeina=="1" )  AND  droga=="2"  AND  alcoholismo=="2") ENTONCES drogas="2"
+53.SI((tabaquismo=="0" OR tabaquismo=="1")  AND  cafeina=="2"  AND  (droga=="0" OR droga=="1")  AND  (alcoholismo=="0" OR alcoholismo=="1")) ENTONCES drogas="1"
+54.SI((tabaquismo=="0" OR tabaquismo=="1")  AND  cafeina=="2"  AND  (droga=="0" OR droga=="1")  AND  alcoholismo=="2") ENTONCES drogas="2"
+55.SI((tabaquismo=="0" OR tabaquismo=="1")  AND  cafeina=="2"  AND  droga=="2"  AND  (alcoholismo=="0" OR alcoholismo=="1")) ENTONCES drogas="2"
+56.SI((tabaquismo=="0" OR tabaquismo=="1")  AND  cafeina=="2"  AND  droga=="2"  AND   alcoholismo=="2")
+ENTONCES drogas="2"                 
+57.SI((tabaquismo=="2" OR tabaquismo=="3")  AND  (cafeina=="0" OR cafeina=="1" )  AND  (droga=="0" OR droga=="1")  AND  (alcoholismo=="0" OR alcoholismo=="1")) ENTONCES drogas="0"
+58.SI((tabaquismo=="2" OR tabaquismo=="3")  AND  (cafeina=="0" OR cafeina=="1" )  AND  (droga=="0" OR droga=="1")  AND  alcoholismo=="2") ENTONCES drogas="1"
+59.SI((tabaquismo=="2" OR tabaquismo=="3")  AND  (cafeina=="0" OR cafeina=="1" )  AND  droga=="2"  AND  (alcoholismo=="0" OR alcoholismo=="1")) ENTONCES drogas="1"
+60.SI((tabaquismo=="2" OR tabaquismo=="3")  AND  (cafeina=="0" OR cafeina=="1" )  AND  droga=="2"  AND  alcoholismo=="2") ENTONCES drogas="2"
+61.SI((tabaquismo=="2" OR tabaquismo=="3")  AND  cafeina=="2"  AND  (droga=="0" OR droga=="1")  AND  (alcoholismo=="0" OR alcoholismo=="1")) ENTONCES drogas="1"
+62.SI((tabaquismo=="2" OR tabaquismo=="3")  AND  cafeina=="2"  AND  (droga=="0" OR droga=="1")  AND  alcoholismo=="2") ENTONCES drogas="2"
+63.SI((tabaquismo=="2" OR tabaquismo=="3")  AND  cafeina=="2"  AND  droga=="2"  AND  (alcoholismo=="0" OR alcoholismo=="1")) ENTONCES drogas="2"
+64.SI((tabaquismo=="2" OR tabaquismo=="3")  AND  cafeina=="2"  AND  droga=="2"  AND  alcoholismo=="2")ENTONCES drogas="2"
+
+//REGLAS TRANSTORNO DEL SUEÑO
+65.SI(insomnio=="0"  AND  apneaSuenio=="0") ENTONCES transtornoSuenio="0" 
+66.SI(insomnio=="0"  AND  apneaSuenio=="1") ENTONCES transtornoSuenio="1"
+67.SI(insomnio=="0"  AND  apneaSuenio=="2") ENTONCES transtornoSuenio="2"
+68.SI(insomnio=="1"  AND  apneaSuenio=="0") ENTONCES transtornoSuenio="1"
+69.SI(insomnio=="1"  AND   apneaSuenio=="1") ENTONCES transtornoSuenio="2"
+70.SI(insomnio=="1"  AND  apneaSuenio=="2") ENTONCES transtornoSuenio="2"
+71.SI(insomnio=="2"  AND  apneaSuenio=="0") ENTONCES transtornoSuenio="1"
+72.SI(insomnio=="2"  AND  apneaSuenio=="1") ENTONCES transtornoSuenio="2"
+73.SI(insomnio=="2"  AND  apneaSuenio=="2") ENTONCES transtornoSuenio="2"
+
+//REGLAS SINTOMA HIPERTENSIÓN ARTERIAL
+74.SI(transtornoSuenio=="0"  AND  enrojecimiento=="0"  AND  hemorragiaNasal=="0") ENTONCES
+sintomaHArterial="0"                           
+75.SI(transtornoSuenio=="0"  AND  enrojecimiento=="0"  AND  hemorragiaNasal=="1") ENTONCES
+sintomaHArterial="0"                             
+76.SI(transtornoSuenio=="0"  AND  enrojecimiento=="0"  AND  hemorragiaNasal=="2") ENTONCES
+sintomaHArterial="0"                            
+77.SI(transtornoSuenio=="0"  AND  enrojecimiento=="1"  AND  hemorragiaNasal=="0") ENTONCES
+sintomaHArterial="0"                              
+78.SI(transtornoSuenio=="0"  AND  enrojecimiento=="1"  AND  hemorragiaNasal=="1") ENTONCES
+sintomaHArterial="1"                             
+79.SI(transtornoSuenio=="0"  AND  enrojecimiento=="1"  AND   hemorragiaNasal=="2") ENTONCES
+sintomaHArterial="1" 
+80.SI(transtornoSuenio=="0"  AND  enrojecimiento=="2"  AND  hemorragiaNasal=="0") ENTONCES
+sintomaHArterial="0" 
+81.SI(transtornoSuenio=="0"  AND  enrojecimiento=="2"  AND  hemorragiaNasal=="1") ENTONCES
+sintomaHArterial="1" 
+82.SI(transtornoSuenio=="0"  AND  enrojecimiento=="2"  AND  hemorragiaNasal=="2") ENTONCES
+sintomaHArterial="2" 
+83.SI(transtornoSuenio=="1"  AND  enrojecimiento=="0"  AND  hemorragiaNasal=="0") ENTONCES
+sintomaHArterial="0" 
+84.SI(transtornoSuenio=="1"  AND  enrojecimiento=="0"  AND   hemorragiaNasal=="1") ENTONCES
+sintomaHArterial="1" 
+85.SI(transtornoSuenio=="1"  AND  enrojecimiento=="0"  AND   hemorragiaNasal=="2") ENTONCES
+sintomaHArterial="2" 
+86.SI(transtornoSuenio=="1"  AND  enrojecimiento=="1"  AND  hemorragiaNasal=="0") ENTONCES
+sintomaHArterial="1" 
+87.SI(transtornoSuenio=="1"  AND  enrojecimiento=="1"  AND  hemorragiaNasal=="1") ENTONCES
+sintomaHArterial="2" 
+88.SI(transtornoSuenio=="1"  AND  enrojecimiento=="1"  AND  hemorragiaNasal=="2") ENTONCES
+sintomaHArterial="2"                     
+89.SI(transtornoSuenio=="1"  AND  enrojecimiento=="2"  AND  hemorragiaNasal=="0") ENTONCES
+sintomaHArterial="0" 
+90.SI(transtornoSuenio=="1"  AND  enrojecimiento=="2"  AND  hemorragiaNasal=="1") ENTONCES
+sintomaHArterial="2" 
+91.SI(transtornoSuenio=="1"  AND  enrojecimiento=="2"  AND  hemorragiaNasal=="2") ENTONCES
+sintomaHArterial="2" 
+92.SI(transtornoSuenio=="2"  AND  enrojecimiento=="0"  AND  hemorragiaNasal=="0") ENTONCES
+sintomaHArterial="1" 
+93.SI(transtornoSuenio=="2"  AND  enrojecimiento=="0"  AND  hemorragiaNasal=="1") ENTONCES
+sintomaHArterial="1" 
+94.SI(transtornoSuenio=="2"  AND  enrojecimiento=="0"  AND  hemorragiaNasal=="2") ENTONCES
+sintomaHArterial="1" 
+95.SI(transtornoSuenio=="2"  AND  enrojecimiento=="1"  AND  hemorragiaNasal=="0") ENTONCES
+sintomaHArterial="1" 
+96.SI(transtornoSuenio=="2"  AND  enrojecimiento=="1"  AND  hemorragiaNasal=="1") ENTONCES
+sintomaHArterial="2" 
+97.SI(transtornoSuenio=="2"  AND  enrojecimiento=="1"  AND   hemorragiaNasal=="2") ENTONCES
+sintomaHArterial="2"                     
+98.SI(transtornoSuenio=="2"  AND  enrojecimiento=="2"  AND  hemorragiaNasal=="0") ENTONCES
+sintomaHArterial="1" 
+99.SI(transtornoSuenio=="2"  AND  enrojecimiento=="2"  AND  hemorragiaNasal=="1") ENTONCES
+sintomaHArterial="2" 
+100.SI(transtornoSuenio=="2"  AND  enrojecimiento=="2"  AND  hemorragiaNasal=="2") ENTONCES
+sintomaHArterial="2" 
+
+//REGLAS SINTOMAS CARDIOPATÍAS
+101.SI(anginaPecho=="0"  AND  disnea=="0"  AND  astenia=="0"  AND  sincope=="0") ENTONCES sintomaCardiopatia="0"
+102.SI(anginaPecho=="0"  AND  disnea=="0"  AND  astenia=="0"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+103.SI(anginaPecho=="0"  AND  disnea=="0"  AND  astenia=="0"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+104.SI(anginaPecho=="0"  AND  disnea=="0"  AND  astenia=="1"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+105.SI(anginaPecho=="0"  AND  disnea=="0"  AND  astenia=="1"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+106.SI(anginaPecho=="0"  AND  disnea=="0"  AND  astenia=="1"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+107.SI(anginaPecho=="0"  AND  disnea=="0"  AND  astenia=="2"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+108.SI(anginaPecho=="0"  AND  disnea=="0"  AND  astenia=="2"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+109.SI(anginaPecho=="0"  AND  disnea=="0"  AND  astenia=="2"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"                     
+110.SI(anginaPecho=="0"  AND  disnea=="1" astenia=="0"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+111.SI(anginaPecho=="0"  AND  disnea=="1" astenia=="0"  AND   sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+112.SI(anginaPecho=="0"  AND  disnea=="1"  AND  astenia=="0"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+113.SI(anginaPecho=="0"  AND  disnea=="1"  AND  astenia=="1"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+114.SI(anginaPecho=="0"  AND  disnea=="1"  AND  astenia=="1"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+115.SI(anginaPecho=="0"  AND  disnea=="1"  AND  astenia=="1"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+116.SI(anginaPecho=="0"  AND  disnea=="1"  AND  astenia=="2"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+117.SI(anginaPecho=="0"  AND  disnea=="1"  AND  astenia=="2"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+118.SI(anginaPecho=="0"  AND  disnea=="1"  AND  astenia=="2"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"                  
+119.SI(anginaPecho=="0"  AND  disnea=="2"  AND  astenia=="0"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+120.SI(anginaPecho=="0"  AND  disnea=="2"  AND  astenia=="0"  AND   sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+121.SI(anginaPecho=="0"  AND  disnea=="2"  AND  astenia=="0"  AND   sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+122.SI(anginaPecho=="0"  AND  disnea=="2"  AND  astenia=="1"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+123.SI(anginaPecho=="0"  AND  disnea=="2"  AND  astenia=="1"  AND   sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+124.SI(anginaPecho=="0"  AND  disnea=="2"  AND  astenia=="1"  AND   sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+125.SI(anginaPecho=="0"  AND  disnea=="2"  AND  astenia=="2"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+126.SI(anginaPecho=="0"  AND  disnea=="2"  AND  astenia=="2"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+127.SI(anginaPecho=="0"  AND  disnea=="2"  AND  astenia=="2"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+128.SI(anginaPecho=="1"  AND  disnea=="0"  AND  astenia=="0"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+129.SI(anginaPecho=="1"  AND  disnea=="0"  AND  astenia=="0"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+130.SI(anginaPecho=="1"  AND  disnea=="0"  AND  astenia=="0"  AND   sincope=="2")
+ENTONCES sintomaCardiopatia="0"                
+131.SI(anginaPecho=="1"  AND  disnea=="0"  AND   astenia=="1"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+132.SI(anginaPecho=="1"  AND  disnea=="0"  AND  astenia=="1"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+133.SI(anginaPecho=="1"  AND  disnea=="0"  AND  astenia=="1"  AND   sincope=="2")
+ENTONCES sintomaCardiopatia="0"                 
+134.SI(anginaPecho=="1"  AND  disnea=="0"  AND  astenia=="2"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+135.SI(anginaPecho=="1"  AND  disnea=="0"  AND  astenia=="2"  AND   sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+136.SI(anginaPecho=="1"  AND  disnea=="0"  AND  astenia=="2"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+137.SI(anginaPecho=="1"  AND  disnea=="1"  AND  astenia=="0"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+138.SI(anginaPecho=="1"  AND  disnea=="1"  AND  astenia=="0"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+139.SI(anginaPecho=="1"  AND  disnea=="1"  AND  astenia=="0"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"              
+140.SI(anginaPecho=="1"  AND  disnea=="1"  AND  astenia=="1"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+141.SI(anginaPecho=="1"  AND  disnea=="1"  AND  astenia=="1"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+142.SI(anginaPecho=="1"  AND  disnea=="1"  AND  astenia=="1"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+143.SI(anginaPecho=="1"  AND  disnea=="1"  AND  astenia=="2"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+144.SI(anginaPecho=="1"  AND  disnea=="1"  AND  astenia=="2"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+145.SI(anginaPecho=="1"  AND  disnea=="1"  AND  astenia=="2"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"                 
+146.SI(anginaPecho=="1"  AND   disnea=="2"  AND  astenia=="0"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+147.SI(anginaPecho=="1"  AND   disnea=="2"  AND  astenia=="0"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+148.SI(anginaPecho=="1"  AND   disnea=="2"  AND  astenia=="0"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+149.SI(anginaPecho=="1"  AND   disnea=="2"  AND  astenia=="1"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+150.SI(anginaPecho=="1"  AND   disnea=="2"  AND  astenia=="1"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+151.SI(anginaPecho=="1"  AND   disnea=="2"  AND  astenia=="1"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"                  
+152.SI(anginaPecho=="1"  AND   disnea=="2"  AND  astenia=="2"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+153.SI(anginaPecho=="1"  AND   disnea=="2"  AND  astenia=="2"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+154.SI(anginaPecho=="1"  AND   disnea=="2"  AND  astenia=="2"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+155.SI(anginaPecho=="2"  AND  disnea=="0"  AND  astenia=="0"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+156.SI(anginaPecho=="2"  AND  disnea=="0"  AND  astenia=="0"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+157.SI(anginaPecho=="2"  AND  disnea=="0"  AND  astenia=="0"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"               
+158.SI(anginaPecho=="2"  AND  disnea=="0"  AND  astenia=="1"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+159.SI(anginaPecho=="2"  AND  disnea=="0"  AND  astenia=="1"  AND   sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+160.SI(anginaPecho=="2"  AND  disnea=="0"  AND  astenia=="1"  AND   sincope=="2")
+ENTONCES sintomaCardiopatia="0"                
+161.SI(anginaPecho=="2"  AND  disnea=="0"  AND  astenia=="2"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+162.SI(anginaPecho=="2"  AND  disnea=="0"  AND  astenia=="2"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+163.SI(anginaPecho=="2"  AND  disnea=="0"  AND  astenia=="2"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"                    
+164.SI(anginaPecho=="2"  AND  disnea=="1"  AND  astenia=="0"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+165.SI(anginaPecho=="2"  AND  disnea=="1"  AND  astenia=="0"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+166.SI(anginaPecho=="2"  AND  disnea=="1"  AND  astenia=="0"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+167.SI(anginaPecho=="2"  AND  disnea=="1"  AND  astenia=="1"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+168.SI(anginaPecho=="2"  AND  disnea=="1"  AND  astenia=="1"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+169.SI(anginaPecho=="2"  AND  disnea=="1"  AND  astenia=="1"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+170.SI(anginaPecho=="2"  AND  disnea=="1"  AND  astenia=="2"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+171.SI(anginaPecho=="2"  AND  disnea=="1"  AND  astenia=="2"  AND   sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+172.SI(anginaPecho=="2"  AND  disnea=="1"  AND  astenia=="2"  AND   sincope=="2")
+ENTONCES sintomaCardiopatia="0"           
+173.SI(anginaPecho=="2"  AND  disnea=="2"  AND  astenia=="0"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+174.SI(anginaPecho=="2"  AND  disnea=="2"  AND  astenia=="0"  AND   sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+175.SI(anginaPecho=="2"  AND  disnea=="2"  AND  astenia=="0"  AND   sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+176.SI(anginaPecho=="2"  AND  disnea=="2"  AND  astenia=="1"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+177.SI(anginaPecho=="2"  AND  disnea=="2"  AND  astenia=="1"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+178.SI(anginaPecho=="2"  AND  disnea=="2"  AND  astenia=="1"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+179.SI(anginaPecho=="2"  AND  disnea=="2"  AND  astenia=="2"  AND  sincope=="0")
+ENTONCES sintomaCardiopatia="0"
+180.SI(anginaPecho=="2"  AND  disnea=="2"  AND  astenia=="2"  AND  sincope=="1")
+ENTONCES sintomaCardiopatia="0"
+181.SI(anginaPecho=="2"  AND  disnea=="2"  AND  astenia=="2"  AND  sincope=="2")
+ENTONCES sintomaCardiopatia="0"
+
+//REGLAS FACTOR DE RIESGO CARDIOPATIA
+182.SI(ejercicio=="2"  AND  malaAlimentacion=="0"  AND  drogas=="0")
+ENTONCES FRiesgoCardiopatia="0"
+183.SI(ejercicio=="2"  AND  malaAlimentacion=="0"  AND  drogas=="1")
+ENTONCES FRiesgoCardiopatia="1"
+184.SI(ejercicio=="2"  AND  malaAlimentacion=="0"  AND  drogas=="2")
+ENTONCES FRiesgoCardiopatia="2"
+185.SI(ejercicio=="2"  AND  malaAlimentacion=="1"  AND  drogas=="0")
+ENTONCES FRiesgoCardiopatia="1"
+186.SI(ejercicio=="2"  AND  malaAlimentacion=="1"  AND  drogas=="1")
+ENTONCES FRiesgoCardiopatia="2"
+187.SI(ejercicio=="2"  AND  malaAlimentacion=="1"  AND  drogas=="2")
+ENTONCES FRiesgoCardiopatia="2"           
+188.SI(ejercicio=="2"  AND  malaAlimentacion=="2"  AND  drogas=="0")
+ENTONCES FRiesgoCardiopatia="1"
+189.SI(ejercicio=="2"  AND  malaAlimentacion=="2"  AND  drogas=="1")
+ENTONCES FRiesgoCardiopatia="2"
+190.SI(ejercicio=="2"  AND  malaAlimentacion=="2"  AND  drogas=="2")
+ENTONCES FRiesgoCardiopatia="2"            
+191.SI(ejercicio=="1"  AND  malaAlimentacion=="0"  AND  drogas=="0")
+ENTONCES FRiesgoCardiopatia="1"
+192.SI(ejercicio=="1"  AND  malaAlimentacion=="0"  AND  drogas=="1")
+ENTONCES FRiesgoCardiopatia="2"
+193.SI(ejercicio=="1"  AND  malaAlimentacion=="0"  AND  drogas=="2")
+ENTONCES FRiesgoCardiopatia="2"            
+194.SI(ejercicio=="1"  AND  malaAlimentacion=="1"  AND  drogas=="0")
+ENTONCES FRiesgoCardiopatia="2"
+195.SI(ejercicio=="1"  AND  malaAlimentacion=="1"  AND  drogas=="1")
+ENTONCES FRiesgoCardiopatia="2"
+196.SI(ejercicio=="1"  AND  malaAlimentacion=="1"  AND  drogas=="2")
+ENTONCES FRiesgoCardiopatia="2"             
+197.SI(ejercicio=="1"  AND  malaAlimentacion=="2"  AND  drogas=="0")
+ENTONCES FRiesgoCardiopatia="2"
+198.SI(ejercicio=="1"  AND  malaAlimentacion=="2"  AND  drogas=="1")
+ENTONCES FRiesgoCardiopatia="2"
+199.SI(ejercicio=="1"  AND  malaAlimentacion=="2"  AND   drogas=="2")
+ENTONCES FRiesgoCardiopatia="2"
+200.SI(ejercicio=="0"  AND  malaAlimentacion=="0"  AND  drogas=="0")
+ENTONCES FRiesgoCardiopatia="2"
+201.SI(ejercicio=="0"  AND  malaAlimentacion=="0"  AND   drogas=="1")
+ENTONCES FRiesgoCardiopatia="2"
+202.SI(ejercicio=="0"  AND  malaAlimentacion=="0"  AND   drogas=="2")
+ENTONCES FRiesgoCardiopatia="2"           
+203.SI(ejercicio=="0"  AND  malaAlimentacion=="1"  AND  drogas=="0")
+ENTONCES FRiesgoCardiopatia="2"
+204.SI(ejercicio=="0"  AND  malaAlimentacion=="1"  AND   drogas=="1")
+ENTONCES FRiesgoCardiopatia="2"
+205.SI(ejercicio=="0"  AND  malaAlimentacion=="1"  AND   drogas=="2")
+ENTONCES FRiesgoCardiopatia="2"      
+206.SI(ejercicio=="0"  AND  malaAlimentacion=="2"  AND  drogas=="0")
+ENTONCES FRiesgoCardiopatia="2"
+207.SI(ejercicio=="0"  AND  malaAlimentacion=="2"  AND  drogas=="1")
+ENTONCES FRiesgoCardiopatia="2"
+208.SI(ejercicio=="0"  AND  malaAlimentacion=="2"  AND  drogas=="2")
+ENTONCES FRiesgoCardiopatia="2"
+
+
+//REGLAS PARA JOVENES CON CARDIOPATÍAS
+209.SI(edad=="1" AND sintomaCardiopatia=="0" AND FRiesgoCardiopatia=="0") ENTONCES gravedadCardiopatia="0"
+210.SI(edad=="1" AND sintomaCardiopatia=="0" AND FRiesgoCardiopatia=="1") ENTONCES gravedadCardiopatia="0"
+211.SI(edad=="1" AND sintomaCardiopatia=="0" AND  FRiesgoCardiopatia=="2") ENTONCES gravedadCardiopatia="0"
+212.SI(edad=="1" AND  sintomaCardiopatia=="1" AND  FRiesgoCardiopatia=="0") ENTONCES gravedadCardiopatia="0"
+213.SI(edad=="1" AND  sintomaCardiopatia=="1" AND  FRiesgoCardiopatia=="1") ENTONCES gravedadCardiopatia="0"
+214.SI(edad=="1" AND  sintomaCardiopatia=="1" AND  FRiesgoCardiopatia=="2") ENTONCES gravedadCardiopatia="0"
+215.SI(edad=="1" AND  sintomaCardiopatia=="2" AND FRiesgoCardiopatia=="0") ENTONCES gravedadCardiopatia="0"  
+216.SI(edad=="1" AND  sintomaCardiopatia=="2" AND FRiesgoCardiopatia=="1") ENTONCES gravedadCardiopatia="0"
+217.SI(edad=="1" AND  sintomaCardiopatia=="2" AND FRiesgoCardiopatia=="2") ENTONCES gravedadCardiopatia="1"
+
+//REGLAS PARA PERSONAS ADULTAS CON CARDIOPATÍAS
+218.SI(edad=="2" AND sintomaCardiopatia=="0" AND FRiesgoCardiopatia=="0") ENTONCES gravedadCardiopatia="0"
+219.SI(edad=="2" AND sintomaCardiopatia=="0" AND  FRiesgoCardiopatia=="1") ENTONCES gravedadCardiopatia="1"
+220.SI(edad=="2" AND sintomaCardiopatia=="0" AND  FRiesgoCardiopatia=="2") ENTONCES gravedadCardiopatia="1"
+221.SI(edad=="2" AND  sintomaCardiopatia=="1" AND FRiesgoCardiopatia=="0") ENTONCES gravedadCardiopatia="0"
+222.SI(edad=="2" AND  sintomaCardiopatia=="1" AND FRiesgoCardiopatia=="1") ENTONCES gravedadCardiopatia="1"
+223.SI(edad=="2" AND  sintomaCardiopatia=="1" AND FRiesgoCardiopatia=="2") ENTONCES gravedadCardiopatia="2"
+224.SI(edad=="2" AND sintomaCardiopatia=="2" AND FRiesgoCardiopatia=="0") ENTONCES gravedadCardiopatia="0"  
+225.SI(edad=="2" AND sintomaCardiopatia=="2" AND FRiesgoCardiopatia=="1") ENTONCES gravedadCardiopatia="2"
+226.SI(edad=="2" AND sintomaCardiopatia=="2" AND FRiesgoCardiopatia=="2") ENTONCES gravedadCardiopatia="2"
+
+//REGLAS PARA ANCIANOS CON CARDIOPATÍAS
+227.SI(edad=="3" AND sintomaCardiopatia=="0" AND FRiesgoCardiopatia=="0") ENTONCES gravedadCardiopatia="1"
+228.SI(edad=="3" AND sintomaCardiopatia=="0" AND FRiesgoCardiopatia=="1") ENTONCES gravedadCardiopatia="1"
+229.SI(edad=="3" AND sintomaCardiopatia=="0" AND FRiesgoCardiopatia=="2") ENTONCES gravedadCardiopatia="1"
+230.SI(edad=="3" AND sintomaCardiopatia=="1" AND FRiesgoCardiopatia=="0") ENTONCES gravedadCardiopatia="1"
+231.SI(edad=="3" AND sintomaCardiopatia=="1" AND FRiesgoCardiopatia=="1") ENTONCES gravedadCardiopatia="2"
+232.SI(edad=="3" AND sintomaCardiopatia=="1" AND FRiesgoCardiopatia=="2") ENTONCES gravedadCardiopatia="2"
+233.SI(edad=="3" AND sintomaCardiopatia=="2" AND FRiesgoCardiopatia=="0") ENTONCES gravedadCardiopatia="2"  
+234.SI(edad=="3" AND sintomaCardiopatia=="2" AND FRiesgoCardiopatia=="1") ENTONCES gravedadCardiopatia="2"
+235.SI(edad=="3" AND sintomaCardiopatia=="2" AND FRiesgoCardiopatia=="2") ENTONCES gravedadCardiopatia="2"
+
+//REGLAS DE LA CARDIOPATÍA ISQUÉMICA
+236.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="0"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES  tipoCardiopatia="usted tiene podria padecer de ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE " tipoCardiopatiaB=true
+237.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="0"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "tipoCardiopatiaB=true
+238.SI( (gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="0"  AND infarto=="0"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+239.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="0"  AND infarto=="0"  AND  AFIsquemia=="0"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+240.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="0"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+241.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+242.SI( (gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="0"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+243.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND   estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="0"  AND  AFIsquemia=="0"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+//dos variables 
+244.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND   estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="0"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+245.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND   estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+246.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND   estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+247.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND   estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+248.SI( (gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+249.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND   estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+250.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND   estAnabolico=="1" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA  "
+251.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND   estAnabolico=="0" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+//----
+252.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="0"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+253.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="0"  AND  AFIsquemia=="0"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+254.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="0"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+255.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="0"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+256.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="0"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+257.SI( estAnabolico=="0" AND  hinchazonPTP=="0"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+//-- 
+258.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="0"  AND  sudoracion=="0" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+259.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="0"  AND  sudoracion=="0" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA  "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+260.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="0"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+261.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="0"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+262.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+//.....
+263.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+264.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+265.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+266.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  hinchazonPTP=="1"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene problamente  ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+//----
+267.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="0" AND  (hinchazonPTP=="1")  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene problamente  ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+// anabalolico 2
+268.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND   (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene problamente  ISQUEMIA  "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+269.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene problamente  ISQUEMIA "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+//----
+270.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene problamente  ISQUEMIA "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+//
+271.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="1"  AND infarto=="0"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene problamente  ISQUEMIA  "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+272.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="0"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene problamente  ISQUEMIA  "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+// dos variables
+273.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="0"  AND infarto=="0"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene problamente  ISQUEMIA  "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+274.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="0"  AND infarto=="1"  AND  AFIsquemia=="0"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene problamente  ISQUEMIA  "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+275.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="0"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="0"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene problamente  ISQUEMIA    "MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "
+276.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="0"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="0" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene problamente  ISQUEMIA   " 
+277.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  (estAnabolico=="2"ORestAnabolico=="1"ORestAnabolico=="0") AND  (hinchazonPTP=="2"ORhinchazonPTP=="1"ORhinchazonPTP=="0")  AND  (sudoracion=="2"ORsudoracion=="1"ORsudoracion=="0") AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true
+tipoCardiopatia="usted tiene podria padecer ISQUEMIA   "
+// URGENCIA 
+278.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="2" AND  hinchazonPTP=="2"  AND  sudoracion=="2" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene problamente  ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!!! "
+279.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="1" AND  hinchazonPTP=="2"  AND  sudoracion=="2" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene problamente  ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!!! "
+280.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="2" AND  hinchazonPTP=="1"  AND  sudoracion=="2" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene problamente  ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!!! "
+281.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2" )  AND  estAnabolico=="2" AND  hinchazonPTP=="2"  AND  sudoracion=="1" AND anticonceptivo=="1"  AND infarto=="1"  AND  AFIsquemia=="1"  AND Preeclampsia=="1"  AND  depresion=="1" ) ENTONCES tipoCardiopatiaB=true tipoCardiopatia="usted tiene problamente  ISQUEMIA   "MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!!! "
+
+//REGLAS DE LA VALVULOPATIA
+282.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="0"  AND  tos=="1"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE "  tipoCardiopatiaB=true                  
+283.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="0"  AND  tos=="1"  AND  hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE " tipoCardiopatiaB=true
+284.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="0"  AND  tos=="1"  AND  hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!!!  " tipoCardiopatiaB=true                       
+285.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="0"  AND  tos=="2"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE " tipoCardiopatiaB=true           
+286.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="0"  AND  hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!!!  " tipoCardiopatiaB=true
+287.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="0"  AND  hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!!!  " tipoCardiopatiaB=true                       
+288.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="1"  AND  tos=="0"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene  riesgo de padecer valvulopatia en un futuro"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE"  tipoCardiopatiaB=true                  
+289.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="1"  AND  tos=="0"  AND  hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene  riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE"   tipoCardiopatiaB=true
+290.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="1"  AND  tos=="0"  AND  hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!!! "   tipoCardiopatiaB=true                       
+291.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="1"  AND  tos=="1"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!!! "   tipoCardiopatiaB=true             
+292.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="1"  AND  tos=="1"  AND  hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!!! "   tipoCardiopatiaB=true
+293.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="1"  AND  tos=="1"  AND  hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!!! "  tipoCardiopatiaB=true                       
+294.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="1"  AND  tos=="2"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!!!  "  tipoCardiopatiaB=true                  
+295.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="1"  AND  tos=="2"  AND  hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!!!" tipoCardiopatiaB=true
+296.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="0"  AND  fiebreReumatica=="1"  AND  tos=="2"  AND  hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!!! "  tipoCardiopatiaB=true                       
+297.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="0"  AND  tos=="1"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE  "  tipoCardiopatiaB=true                   
+298.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="0"  AND  tos=="1"  AND  hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!! "  tipoCardiopatiaB=true
+299.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="0"  AND  tos=="1"  AND  hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!!"  tipoCardiopatiaB=true                       
+300.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="0"  AND  tos=="2"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE  "  tipoCardiopatiaB=true            
+301.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="0"  AND  tos=="2"  AND   hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA!!!! "  tipoCardiopatiaB=true
+302.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="0"  AND  tos=="2"  AND   hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA  "  tipoCardiopatiaB=true                       
+303.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="1"  AND  tos=="0"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene  riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE  "  tipoCardiopatiaB=true                     
+304.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="1"  AND  tos=="0"  AND  hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE  "  tipoCardiopatiaB=true
+305.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="1"  AND  tos=="0"  AND  hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE  "  tipoCardiopatiaB=true                                       
+306.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="1"  AND  tos=="1"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene  riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE  "  tipoCardiopatiaB=true                     
+307.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="1"  AND  tos=="1"  AND  hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!! "  tipoCardiopatiaB=true
+308.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="1"  AND  tos=="1"  AND  hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!! "  tipoCardiopatiaB=true                       
+309.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="1"  AND  tos=="2"  AND  hinchazonPTP=="0") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON  URGENCIA!!!!!   "  tipoCardiopatiaB=true                
+310.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="1"  AND  tos=="2"  AND  hinchazonPTP=="1") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!! "  tipoCardiopatiaB=true
+311.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  ARTorax=="1"  AND  fiebreReumatica=="1"  AND  tos=="2"  AND   hinchazonPTP=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer valvulopatia"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA  "  tipoCardiopatiaB=true                       
+
+//REGLAS DE LA HIPERTENSION ARTERIAL
+312.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  (sodio=="0" OR magnesio=="2" OR potasio=="2" OR presion=="2" OR presion=="3")  AND  sintomaHArterial=="1") ENTONCES
+tipoCardiopatia="Usted tiene alto riesgo de padecer hipertension arterial"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!  " tipoCardiopatiaB=true
+313.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  (sodio=="0" OR magnesio=="2" OR potasio=="2" OR presion=="2" OR presion=="3")  AND  sintomaHArterial=="2") ENTONCES
+tipoCardiopatia="Usted tiene alto riesgo de padecer hipertension arterial"MENSAJE="VISITE A UN CARDIOLOGO CON URGENCIA !!!!  " tipoCardiopatiaB=true
+314.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  (sodio=="1" OR sodio=="2")  AND  (potasio=="0" OR potasio=="1")  AND  (magnesio=="0" OR magnesio=="1")  AND  ( presion=="1" OR presion=="2" OR presion=="3")  AND  sintomaHArterial=="0") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer hipertension arterial en un futuro"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE  "
+tipoCardiopatiaB=true               
+315.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  (sodio=="1" OR sodio=="2")  AND  (potasio=="0" OR potasio=="1")  AND  (magnesio=="0" OR magnesio=="1")  AND  ( presion=="1" OR presion=="2" OR presion=="3")  AND  sintomaHArterial=="1") ENTONCES tipoCardiopatia="Usted tiene riesgo de padecer hipertension arterial"MENSAJE="VISITE A UN CARDIOLOGO LO MAS ANTES POSIBLE  " tipoCardiopatiaB=true
+316.SI((gravedadCardiopatia=="1" OR gravedadCardiopatia=="2")  AND  (sodio=="1" OR sodio=="2")  AND  (potasio=="0" OR potasio=="1")  AND  (magnesio=="0" OR magnesio=="1")  AND  ( presion=="1" OR presion=="2" OR presion=="3")  AND   sintomaHArterial=="2") ENTONCES tipoCardiopatia="Usted tiene alto riesgo de padecer hipertension arterial"MENSAJE= "VISITE A UN CARDIOLOGO CON URGENCIA !!!!  "
+tipoCardiopatiaB=true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
