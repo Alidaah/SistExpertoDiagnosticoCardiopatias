@@ -1,4 +1,4 @@
-//REGLAS DE ANGINA DE PECHO
+//REGLAS DE LA ANGINA DE PECHO
 1.SI((opresionPecho=="0" OR opresionPecho=="1" )  AND  (dolorPecho=="0" OR dolorPecho=="1")  AND
   (dolorTorax=="0" OR dolorTorax=="1")) ENTONCES anginaPecho="0"
 2.SI((opresionPecho=="0" OR opresionPecho=="1" )  AND  (dolorPecho=="0" OR dolorPecho=="1")   AND
@@ -15,7 +15,7 @@
   ENTONCES anginaPecho="2"
 8.SI(opresionPecho=="2"  AND  dolorPecho=="2"  AND  dolorTorax=="2") ENTONCES anginaPecho="2"
 
-//REGLAS PARA LA ASTENIA
+//REGLAS PARA LA ASTENIA(DEBILIDAD O FATIGA)
 9.SI((debilidadExt=="0" OR debilidadExt=="1" )  AND  (fatigaEF=="0" OR fatigaEF=="1")  AND  (dolorCabeza=="0" OR dolorCabeza=="1")) ENTONCES astenia="0"
 10.SI((debilidadExt=="0" OR debilidadExt=="1" )  AND  (fatigaEF=="0" OR fatigaEF=="1")  AND  dolorCabeza=="2")ENTONCES astenia="1"
 11.SI((debilidadExt=="0" OR debilidadExt=="1" )  AND  fatigaEF=="2"  AND  (dolorCabeza=="0" OR dolorCabeza=="1")) ENTONCES astenia="1"
@@ -25,7 +25,7 @@
 15.SI(debilidadExt=="2"  AND  fatigaEF=="2"  AND  (dolorCabeza=="0" OR dolorCabeza=="1")) ENTONCES anginaPecho="2"
 16.SI(debilidadExt=="2"  AND  fatigaEF=="2"  AND  dolorCabeza=="2") ENTONCES anginaPecho="2"
  
-//REGLAS PARA LA DISNEA
+//REGLAS PARA LA DISNEA(DIFICULTAD RESPIRATORIA)
 17.SI((FADescansar=="0" OR FADescansar=="1" )  AND  (dSIRespirar=="0" OR dSIRespirar=="1")  AND  (FAHablar=="0" OR FAHablar=="1")) ENTONCES disnea="0"
 18.SI((FADescansar=="0" OR FADescansar=="1" )  AND  (dSIRespirar=="0" OR dSIRespirar=="1")  AND  FAHablar=="2") ENTONCES disnea="1"
 19.SI((FADescansar=="0" OR FADescansar=="1" )  AND  dSIRespirar=="2"  AND  (FAHablar=="0" OR FAHablar=="1")) ENTONCES disnea="1"
@@ -35,7 +35,7 @@
 23.SI(FADescansar=="2"  AND  dSIRespirar=="2"  AND  (FAHablar=="0" OR FAHablar=="1")) ENTONCES disnea="2"
 24.SI(FADescansar=="2"  AND  dSIRespirar=="2"  AND  FAHablar=="2") ENTONCES disnea="2"
  
-//REGLAS PARA EL SINCOPE
+//REGLAS PARA EL SINCOPE(DESMAYO)
 25.SI((mareo=="0" OR mareo=="1" )  AND  (nauVom=="0" OR nauVom=="1")  AND  (desmayo=="0" OR desmayo=="1")) ENTONCES sincope="0"
 26.SI((mareo=="0" OR mareo=="1" )  AND  (nauVom=="0" OR nauVom=="1")  AND  desmayo=="2")ENTONCES sincope="1"
 27.SI((mareo=="0" OR mareo=="1" )  AND  nauVom=="2"  AND  (desmayo=="0" OR desmayo=="1"))ENTONCES sincope="1"
