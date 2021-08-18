@@ -1,4 +1,4 @@
-//REGLAS DE LA ANGINA DE PECHO
+//REGLAS DE LA ANGINA(DOLOR) DE PECHO
 1.SI((opresionPecho=="0" OR opresionPecho=="1" )  AND  (dolorPecho=="0" OR dolorPecho=="1")  AND
   (dolorTorax=="0" OR dolorTorax=="1")) ENTONCES anginaPecho="0"
 2.SI((opresionPecho=="0" OR opresionPecho=="1" )  AND  (dolorPecho=="0" OR dolorPecho=="1")   AND
